@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дошка оголошень Коледжу</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #1a252f;
+            --accent-color: #3498db;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #2ecc71;
+            --danger-color: #e74c3c;
+            --gray-color: #95a5a6;
+            --white-color: #ffffff;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #ecf0f1;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--success-color);
+        }
+        
+        .add-btn {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .add-btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .add-btn i {
+            margin-right: 8px;
+        }
+        
+        .search-container {
+            display: flex;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            padding: 5px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 0 50px 50px 0;
+        }
+        
+        .search-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 50px;
+            padding: 5px 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .filter-label {
+            margin-right: 10px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .filter-select {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+        
+        .ads-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .ad-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .ad-image {
+            height: 180px;
+            background-color: var(--gray-color);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .ad-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+        }
+        
+        .ad-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 5;
+        }
+        
+        .ad-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .ad-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .ad-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .ad-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .ad-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .ad-date {
+            font-size: 12px;
+            color: var(--gray-color);
+        }
+        
+        .ad-contact {
+            font-size: 14px;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+        
+        .ad-card:hover .delete-btn {
+            opacity: 1;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            line-height: 1;
+            padding: 0 5px;
+        }
+        
+        .close-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .modal-body {
+            padding: 20px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .modal-footer {
+            padding: 15px 20px;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid #ddd;
+            gap: 10px;
+        }
+        
+        .submit-btn {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .cancel-btn {
+            background-color: var(--gray-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .cancel-btn:hover {
+            background-color: #7f8c8d;
+        }
+        
+        .image-upload {
+            margin-bottom: 20px;
+        }
+        
+        .image-preview {
+            width: 100%;
+            height: 150px;
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+            margin-top: 10px;
+            border-radius: var(--border-radius);
+            display: none;
+        }
+        
+        .upload-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .upload-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            grid-column: 1 / -1;
+        }
+        
+        .empty-state i {
+            font-size: 60px;
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+        
+        .empty-state h3 {
+            font-size: 22px;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .empty-state p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+
+        /* Стилі для модального вікна перегляду оголошення */
+        .view-ad-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        .view-ad-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+            border-radius: var(--border-radius);
+        }
+
+        .view-ad-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 5;
+        }
+
+        .view-ad-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .view-ad-description {
+            white-space: pre-line;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .view-ad-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .view-ad-date {
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+
+        .view-ad-contact {
+            font-size: 16px;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .add-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .filter-bar {
+                flex-direction: column;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .ads-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .delete-btn {
+                opacity: 1;
+            }
+
+            .modal-content {
+                max-width: 95%;
+            }
+
+            .view-ad-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-university"></i>
+                <span>Дошка оголошень коледжу</span>
+            </div>
+            <button class="add-btn" id="openModalBtn">
+                <i class="fas fa-plus"></i>
+                Додати оголошення
+            </button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Пошук оголошень..." id="searchInput">
+            <button class="search-btn" id="searchBtn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        
+        <div class="filter-bar">
+            <div class="filter-group">
+                <span class="filter-label">Категорія:</span>
+                <select class="filter-select" id="categoryFilter">
+                    <option value="all">Всі категорії</option>
+                    <option value="Спорт">Спорт</option>
+                    <option value="Студенти">Студенти</option>
+                    <option value="Життя коледжу">Життя коледжу</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <span class="filter-label">Сортування:</span>
+                <select class="filter-select" id="sortFilter">
+                    <option value="newest">Спочатку нові</option>
+                    <option value="oldest">Спочатку старі</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="ads-container" id="adsContainer">
+            <!-- Оголошення будуть додані через JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Модальне вікно для додавання оголошення -->
+    <div class="modal" id="addAdModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Додати нове оголошення</h3>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="adForm">
+                    <div class="form-group">
+                        <label for="adTitle" class="form-label">Заголовок</label>
+                        <input type="text" id="adTitle" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adDescription" class="form-label">Опис</label>
+                        <textarea id="adDescription" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="adCategory" class="form-label">Категорія</label>
+                        <select id="adCategory" class="form-control" required>
+                            <option value="">Оберіть категорію</option>
+                            <option value="Спорт">Спорт</option>
+                            <option value="Студенти">Студенти</option>
+                            <option value="Життя коледжу">Життя коледжу</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="adContact" class="form-label">Контактні дані</label>
+                        <input type="text" id="adContact" class="form-control" required>
+                    </div>
+                    <div class="form-group image-upload">
+                        <label class="form-label">Зображення (необов'язково)</label>
+                        <div id="imagePreview" class="image-preview"></div>
+                        <label for="fileInput" class="upload-btn">
+                            <i class="fas fa-upload"></i> Вибрати зображення
+                        </label>
+                        <input type="file" id="fileInput" accept="image/*">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cancel-btn" id="cancelBtn">Скасувати</button>
+                <button type="button" class="submit-btn" id="submitAdBtn">Опублікувати</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальне вікно для перегляду оголошення -->
+    <div class="modal" id="viewAdModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Деталі оголошення</h3>
+                <button class="close-btn" id="closeViewModalBtn">&times;</button>
+            </div>
+            <div class="modal-body" id="viewAdContent">
+                <!-- Вміст буде заповнений через JavaScript -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="cancel-btn" id="closeViewBtn">Закрити</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Початкові дані оголошень
+        const initialAds = [
+            {
+                id: 1,
+                title: "ОБМІН ДОСВІДОМ ТА НОВІ ПЕРСПЕКТИВИ",
+                description: "У межах договору співпраці старший викладач кафедри документознавства та інформаційної діяльності Академія рекреаційних технологій і права Людмила Тарасюк з дружнім візитом побувала у Володимирському педагогічному фаховому коледжі імені Агатангела Кримського.\n\nПід час зустрічі з викладачами циклової комісії діловодства та інформаційної діяльності були порушені важливі питання тісної співпраці між навчальними закладами. Особливу увагу приділили обговоренню освітньо-професійної програми \"Діловодство\", зокрема її відповідності сучасним вимогам ринку праці та можливостям удосконалення.\n\nЗавдяки таким зустрічам відбувається обмін досвідом, розширення професійних горизонтів та зміцнення партнерських відносин між освітніми закладами.",
+                category: "Життя коледжу",
+                contact: "Адміністратор коледжу",
+                date: "2025-04-01",
+                image: "https://vvpc.com.ua/sites/default/files/styles/large/public/images/0-02-05-e9e2d836b6c5b2b0f4d91f0f620559bb32cf3c5ebbf3ddcc311082a368a4b166_9dcf1a515af506b2.jpg?itok=iYu5xg8U"
+            },
+            {
+                    id: 2,
+                    title: "Логопедія та психологія: наука і практика",
+                    description: "Змістовно і цікаво пройшла година спілкування на тему «Логопедія та психологія: наука і практика», під час якої обговорювалися важливі аспекти розвитку дитини в закладах дошкільної освіти: мовлення, емоційний стан та особливі освітні потреби.\n\nЗдобувачі освіти 2-Д курсу (керівник студентської групи Людмила Сєрова) спеціальності 012 «Дошкільна освіта» Володимирського педагогічного фахового коледжу імені Агатангела Кримського мали унікальну можливість поспілкуватися з фахівцями закладу дошкільної освіти № 8 «Вишиванка», які допомагають людям краще розуміти себе та інших. Ці професії, хоча й різні, але тісно пов’язані між собою.\n\nУ заході взяли участь: практичний психолог Оксана Вікторівна Онишко, логопед Олена Петрівна Веремчук, практичний психолог коледжу Ігор Анатолійович Поліщук, голова методичного об'єднання керівників студентських груп Тамара Анастасівна Карпук.\n\nФахівці розповіли про особливості своєї професії, допомогли знайти відповіді на актуальні питання студентів. Захід перевершив усі очікування здобувачів освіти, які на завершення символічно створили «кошик із квітами» – знак того, що зустріч була цікавою та корисною.\n\nЩоб краще познайомитися та розкрити потенціал теми, учасники виконали низку інтерактивних вправ: «Ланцюжок» – для знайомства та налагодження контакту; «Світлофор тверджень» – інтерактивна гра, що допомогла краще зрозуміти особливості роботи спеціалістів; групова робота над вирішенням проблемних ситуацій; панельна дискусія «Запитай у спеціаліста».\n\nСтуденти працювали в різних локаціях: експертній зоні практичного психолога; експертній зоні логопеда. Здобувачі освіти мали змогу за чашкою кави поспілкуватися особисто з будь-яким спеціалістом. Фахівці провели цікаві психологічні та малюнкові тести, логопедичні вправи, а також пальчикову гімнастику.\n\nНа завершення кожен спеціаліст дав найважливіші поради для майбутніх вихователів. Це було особливо важливим, оскільки випускники зараз стоять перед вибором подальшого навчального закладу після закінчення коледжу.\n\nСтуденти підготували фотовиставку «Мрій! Дій! Досягай!», що містила світлини з проходження тижневої і літньої практики. Зустріч була насиченою, змістовною та залишила багато приємних вражень. Щиро дякуємо директору Зоряні Олегівні Гузь та вихователю-методисту Балабановій Тетяні Борисівні ЗДО №8 «Вишиванка» за тісну співпрацю, що сприяє професійному зростанню майбутніх вихователів.",
+                    category: "Життя коледжу",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-04-01",
+                    image: "https://vvpc.com.ua/sites/default/files/styles/large/public/images/0-02-05-f5ce4af42fd9bfbfd6900fdb5bf1a50fe4ffd560c7a1058ffc27eabea9eea3fb_d5e3c2bb6e06ed29.jpg?itok=Zw4bETlm"
+                },
+                {
+                    id: 3,
+                    title: "ДІЛОВИЙ ОФІС ВПФК. ДЕНЬ ВІДКРИТИХ ДВЕРЕЙ-2025",
+                    description: "Студенти 2 курсу спеціальності Інформаційна, бібліотечна та архівна справа зустрічали майбутніх студентів у Діловому офісі ВПФК. На абітурієнтів чекав стильний офіс та працівники, які мали професійний і модний вигляд.\n\nПровели засідання, на якому розглядали питання про переваги та перспективи навчання на спеціальності, дізналися, що творити стильний діловий образ – це мистецтво, де кожна деталь має значення.\n\nНа засіданні були прийняті рішення, в яких абітурієнтам переконливо рекомендували вступати саме на спеціальність В 13 Бібліотечна, інформаційна та архівна справа. Саме тут можна здобути ті знання та набути таких навичок, які обов'язково знадобляться в житті.\n\nКожен абітурієнт отримав зразок заяви вступника Володимирського педагогічного фахового коледжу імені Агатангела Кримського.",
+                    category: "Життя коледжу",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-04-01",
+                    image: "https://vvpc.com.ua/sites/default/files/styles/large/public/images/0-02-05-2c56c3014d8bc63a4731e4f1495b0bbff66b1a75649fb09793710cc8c8cb42ba_ce819448a8f93409.jpg?itok=EOPMvlHB"
+                },
+                {
+                    id: 4,
+                    title: "Олімпіада з педагогіки",
+                    description: "Сьогодні, 31 березня 2025 року, у коледжі відбулася олімпіада з педагогіки. Даний захід проведено з метою підвищення якості підготовки студентів, створення умов для їх творчого зростання, формування фахових компетентностей.\n\nУ випробуваннях брали участь знавці педагогіки третіх курсів. Викладачі Ольга Гнепа та Лідія Павлюк запропонували завдання творчого характеру різного рівня складності. Студенти продемонстрували високий і достатній рівень знань із педагогіки.\n\nВітаємо переможців:\n1 місце - Фіськович Ірина (3-Г);\n2 місце - Деркач Марія (3-Г) та Кались Софія (3-М);\n3 місце - Антонюк Єлизавета (3-В) та Дячишина Каріна (3-Г).",
+                    category: "Студенти",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-03-31",
+                    image: "https://vvpc.com.ua/sites/default/files/styles/large/public/images/0-02-0a-dd7c364c48b86ac002690210c43609ffd868cc7bcabcc8181a3af47032886ab3_af0ba0ddd8697fa8.jpg?itok=Hk_TNf22"
+                },
+                {
+                    id: 5,
+                    title: "Активна участь кримчан у Всесвітньому тижні грошей",
+                    description: "У рамках проведення Всесвітнього тижня грошей (17-30 березня) студенти Володимирського педагогічного фахового коледжу імені Агатангела Кримського на заняттях з економічної теорії (викладач Ігор Поліщук), інформатики (викладач Наталія Поліщук), основ реклами і PR (викладач Ольга Подворнюк) мали змогу ознайомитись з лекціями на теми: «Легкі кредити», «Криптовалюта», «Інвестиції» та закріпили знання з фінансової грамотності у форматі Kahoot!-змагань, розвивали критичне мислення у грі «Правда чи Брехня».\n\nСтуденти переконались, що розуміння фінансової грамотності – ключ до безпеки. Наприклад, не всі онлайн-транзакції автоматично захищені, і важливо встановлювати двофакторну аутентифікацію. Не всі компанії, які обіцяють великі прибутки, є надійними. Важливо перевіряти джерела та не довіряти занадто вигідним пропозиціям.\n\nБезпечне користування інтернетом – важливий аспект фінансової грамотності. Використання унікальних паролів, оновлення пристроїв та обережність при відкритті вкладених файлів можуть захистити від шахрайства. Здобувачі освіти створювали унікальні стікери, відео-ролики на тему фінансової грамотності!\n\nТакож, студенти та викладачі Коледжу взяли участь у вебінарі від Музею грошей «Національний банк України: історія та основні функції», що відбувся 20 березня з нагоди 34 річниці від дня створення Національного банку України.\n\nПід час вебінару учасники дізнались про:\n• історію створення та розвитку центрального банку;\n• обставини виготовлення національної валюти України;\n• виклики під час проведення грошової реформи;\n• початок карбування перших пам'ятних монет України.\n\nУчасть кримчан у Всесвітньому тижні грошей триває!",
+                    category: "Життя коледжу",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-03-31",
+                    image: "https://vvpc.com.ua/sites/default/files/styles/large/public/images/1600%D1%85400_News_GMW2025.jpg?itok=g0O9PfmD"
+                },
+                {
+                    id: 6,
+                    title: "Заслужений майстер народної творчості України",
+                    description: "Указом Президента України почесне звання 'Заслужений майстер народної творчості України' присвоєно викладачці педагогічного коледжу Лесі Мартинюк.\n\nЯка своєю працею, самовідданістю і талантом робить вагомий внесок у культуру та розвиток не лише коледжу, а й міста Володимира та Волинської області.\n\nВідзнаку вручив Іван Рудницький, голова Волинської ОВА.",
+                    category: "Життя коледжу",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-03-31",
+                    image: "https://vvpc.com.ua/sites/default/files/styles/gallery/public/images/photo_5424922210772056805_x.jpg?itok=dTuoiiEK"
+                },
+                {
+                    id: 7,
+                    title: "Вітаємо переможців олімпіади з англійської мови!",
+                    description: "Ми раді оголосити результати щорічної олімпіади з англійської мови, яка цього року проходила в березні серед здобувачів освіти 1 і 2 курсів. Їхні знання та навички були оцінені за допомогою різноманітних завдань, включаючи читання, письмо, аудіювання та усне мовлення.\n\nМи пишаємося всіма учасниками, які продемонстрували високий рівень володіння англійською мовою. Особливо хочемо відзначити переможців:\n\n1 курс:\n1 місце - Кадира Анна (1-В)\n2 місце - Білинець Ангеліна (1-Г)\n3 місце - Ковальовець Христина (1-В)\n\n2 курс:\n1 місце - Слєпченко Максим (2-Г)\n2 місце - Хас Наталія (2-В)\n3 місце - Пасальський Віктор (2-Ц)\n\nМи також хочемо висловити подяку всім викладачам та організаторам, які доклали зусилля для проведення цієї олімпіади та підготовки студентів. Завдяки вашій підтримці та натхненню, наші студенти мають можливість розвивати свої мовні навички та досягати нових висот.\n\nМи віримо, що знання англійської мови відкриває безліч можливостей для наших здобувачів освіти у майбутньому. Бажаємо всім учасникам подальших успіхів у вивченні англійської мови та нових перемог!",
+                    category: "Студенти",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-03-31",
+                    image: "https://vvpc.com.ua/sites/default/files/styles/large/public/images/0-02-05-49269527536a6c4786778176456a6a6110838ffe931a2cf7ec025f9baaf1f09c_b1ca463175b6c274.jpg?itok=yayajBpR"
+                },
+                {
+                    id: 8,
+                    title: "Теорія та практика в дії!",
+                    description: "Розвиток – це результат постійних зусиль та бажання вдосконалюватися. Саме під таким гаслом 27 березня 2025 року відбулася зустріч, на якій Горбач Оксана Сергіївна, учителька Володимирської гімназії №1, висококомпетентний педагог з багаторічним досвідом роботи, учитель-практик, учитель-новатор, ділилася професійними таємницями зі студентами 3-В і 3-Г курсів спеціальності «Початкова освіта» та керівником практики Тетяною Лахманець.\n\nЦя зустріч була цікавою, корисною та пізнавальною, адже Оксана Сергіївна - талановитий педагог, блискучий оратор, яка вміє вдало і творчо ілюструвати теоретичний матеріал цікавими прикладами, а практична діяльність, як відомо, допомагає вдосконалювати набуті вміння.\n\nБуло багато практики та творчої реалізації компетентностей. Оксана Сергіївна запропонувала ряд методів і прийомів, які вона використовує у своїй діяльності, зокрема:\n- ігрові методи\n- проєктну діяльність\n- групову роботу\n\nЦі методи спонукали здобувачів освіти працювати згуртовано, дружно, приймати виважені рішення, критично мислити. Також студенти мали можливість попрацювати на освітніх платформах «На Урок», «LearningApps.org», «Kahoot» та практично вдосконалити навички роботи на цих платформах.\n\nПоради та рекомендації вчителя-практика виявилися дуже слушними, адже студенти під час педагогічної практики зуміють реалізувати їх.\n\nЗустріч залишила лише позитивні емоції, гарний настрій, бажання удосконалюватися та обов'язково зустрітися ще! Щира вдячність за організацію зустрічі Лідії Катинській, Тетяні Лахманець, а Оксані Горбач - за безцінний досвід.",
+                    category: "Студенти",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-03-28",
+                    image: "https://vvpc.com.ua/sites/default/files/styles/large/public/images/0-02-05-242497fd6448a5a14437d2165454f3676417b3df6eb1f4d9e9acdde2372d4aef_a44cf5141efeafc1.jpg?itok=hohY9LGb"
+                },
+                {
+                    id: 9,
+                    title: "Семінар для вчителів початкових класів",
+                    description: "25 березня на базі коледжу під егідою Центру професійного розвитку педагогів Володимирської міської ради проведено черговий семінар.\n\nСвої напрацювання та ідеї щодо покращення процесу навчання школярів розв'язувати математичні задачі для вчителів початкових класів Володимирської громади презентували викладачі коледжу Олександр Юринець та Ольга Гнепа.\n\nОб'єктами для обговорення стали класичні підходи до роботи над сюжетними задачами та можливості їх удосконалення з урахуванням розвитку штучного інтелекту.",
+                    category: "Життя коледжу",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-03-25",
+                    image: "https://vvpc.com.ua/sites/default/files/styles/large/public/images/IMG-844b79e38df6c1464d19d016e4bb699d-V.jpg?itok=d_HTN9KM"
+                },,
+                {
+                    id: 10,
+                    title: "Першість коледжу з настільного тенісу",
+                    description: "20.03.2025 р. відбулася першість нашого коледжу з настільного тенісу.\n\nВ запеклій боротьбі місця розподілилися таким чином:\n\nСеред дівчат:\n1 місце - Астахова Софія (2-В)\n2 місце - Шумік Марія (викладач)\n3 місце - Романюк Ульяна (1-Ц)\n\nСеред юнаків:\n1 місце - Оксентюк Олександр (4-Т)\n2 місце - Михальчук Микола (4-Т)\n3 місце - Заворотинський Артур (2-Т)\n\nДякую учнівському профкому - Карпук Т.А. та голові профкому вчителів - Білик О.С. за надану допомогу у виділенні коштів та подарунків для нагородження.\n\nА також, Слюсарук-Літвін С.С. за допомогу в оформленні документів для нагородження.\n\nГоловний суддя змагань - В.Левков",
+                    category: "Спорт",
+                    contact: "Адміністратор коледжу",
+                    date: "2025-03-20",
+                    image: "https://vvpc.com.ua/sites/default/files/images/0-02-05-913c32abf38f9f4f58735c065b17df913bd55f78e764027fd559a39f5bd2bf41_87b9d9bf2f3b4bd.jpg"
+                },
+            
+                    
+        ];
+        
+        // Функція для отримання оголошень з localStorage
+        function getAdsFromStorage() {
+            const adsJSON = localStorage.getItem('collegeAds');
+            return adsJSON ? JSON.parse(adsJSON) : initialAds;
+        }
+        
+        // Функція для збереження оголошень у localStorage
+        function saveAdsToStorage(ads) {
+            localStorage.setItem('collegeAds', JSON.stringify(ads));
+        }
+        
+        let ads = getAdsFromStorage();
+        
+        // Отримання елементів DOM
+        const adsContainer = document.getElementById('adsContainer');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const sortFilter = document.getElementById('sortFilter');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const addAdModal = document.getElementById('addAdModal');
+        const submitAdBtn = document.getElementById('submitAdBtn');
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const viewAdModal = document.getElementById('viewAdModal');
+        const viewAdContent = document.getElementById('viewAdContent');
+        const closeViewModalBtn = document.getElementById('closeViewModalBtn');
+        const closeViewBtn = document.getElementById('closeViewBtn');
+        const adForm = document.getElementById('adForm');
+        
+        let selectedImage = null;
+        
+        // Обробник завантаження зображення
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    selectedImage = event.target.result;
+                    imagePreview.style.backgroundImage = `url('${selectedImage}')`;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Функція для відображення оголошень
+        function displayAds(adsToDisplay) {
+            adsContainer.innerHTML = '';
+            
+            if (adsToDisplay.length === 0) {
+                adsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <h3>Оголошень не знайдено</h3>
+                        <p>Спробуйте змінити параметри пошуку або додати нове оголошення</p>
+                        <button class="add-btn" id="emptyStateAddBtn">
+                            <i class="fas fa-plus"></i>
+                            Додати оголошення
+                        </button>
+                    </div>
+                `;
+                
+                document.getElementById('emptyStateAddBtn').addEventListener('click', openModal);
+                return;
+            }
+            
+            adsToDisplay.forEach(ad => {
+                const adCard = document.createElement('div');
+                adCard.className = 'ad-card';
+                
+                adCard.innerHTML = `
+                    <div class="ad-image" style="background-image: url('${ad.image || 'https://via.placeholder.com/500x300?text=No+Image'}')">
+                        <span class="ad-category">${ad.category}</span>
+                        <button class="delete-btn" data-id="${ad.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="ad-content">
+                        <h3 class="ad-title">${ad.title}</h3>
+                        <p class="ad-description">${ad.description}</p>
+                        <div class="ad-footer">
+                            <span class="ad-date">${formatDate(ad.date)}</span>
+                            <span class="ad-contact">${ad.contact}</span>
+                        </div>
+                    </div>
+                `;
+                
+                adsContainer.appendChild(adCard);
+                
+                // Додавання обробника кліку на картку оголошення
+                adCard.addEventListener('click', function(e) {
+                    // Перевіряємо, чи клік був не на кнопці видалення
+                    if (!e.target.closest('.delete-btn')) {
+                        viewAd(ad);
+                    }
+                });
+            });
+            
+            // Додавання обробників подій для кнопок видалення
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const id = parseInt(this.getAttribute('data-id'));
+                    deleteAd(id);
+                });
+            });
+        }
+        
+        // Функція для перегляду повної інформації про оголошення
+        function viewAd(ad) {
+            viewAdContent.innerHTML = `
+                <div class="view-ad-image" style="background-image: url('${ad.image || 'https://via.placeholder.com/500x300?text=No+Image'}')">
+                    <span class="view-ad-category">${ad.category}</span>
+                </div>
+                <h3 class="view-ad-title">${ad.title}</h3>
+                <div class="view-ad-description">${ad.description}</div>
+                <div class="view-ad-meta">
+                    <span class="view-ad-date">${formatDate(ad.date)}</span>
+                    <span class="view-ad-contact">Контакти: ${ad.contact}</span>
+                </div>
+            `;
+            
+            openViewModal();
+        }
+        
+        // Функція відкриття модального вікна перегляду
+        function openViewModal() {
+            viewAdModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Функція закриття модального вікна перегляду
+        function closeViewModal() {
+            viewAdModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Функція видалення оголошення
+        function deleteAd(id) {
+            if (confirm('Ви впевнені, що хочете видалити це оголошення?')) {
+                ads = ads.filter(ad => ad.id !== id);
+                saveAdsToStorage(ads);
+                filterAds();
+            }
+        }
+        
+        // Функція форматування дати
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('uk-UA', options);
+        }
+        
+        // Функція фільтрації оголошень
+        function filterAds() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const category = categoryFilter.value;
+            const sortBy = sortFilter.value;
+            
+            let filteredAds = ads.filter(ad => {
+                const matchesSearch = ad.title.toLowerCase().includes(searchTerm) || 
+                                    ad.description.toLowerCase().includes(searchTerm);
+                const matchesCategory = category === 'all' || ad.category === category;
+                
+                return matchesSearch && matchesCategory;
+            });
+            
+            // Сортування оголошень
+            filteredAds.sort((a, b) => {
+                switch(sortBy) {
+                    case 'newest':
+                        return new Date(b.date) - new Date(a.date);
+                    case 'oldest':
+                        return new Date(a.date) - new Date(b.date);
+                    default:
+                        return 0;
+                }
+            });
+            
+            displayAds(filteredAds);
+        }
+        
+        // Функції для роботи з модальним вікном додавання
+        function openModal() {
+            addAdModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            addAdModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            adForm.reset();
+            imagePreview.style.display = 'none';
+            selectedImage = null;
+            fileInput.value = '';
+        }
+        
+        function addNewAd() {
+            // Перевірка валідності форми
+            if (!adForm.checkValidity()) {
+                alert('Будь ласка, заповніть всі обов\'язкові поля');
+                return;
+            }
+            
+            const newAd = {
+                id: Date.now(),
+                title: document.getElementById('adTitle').value,
+                description: document.getElementById('adDescription').value,
+                category: document.getElementById('adCategory').value,
+                contact: document.getElementById('adContact').value,
+                date: new Date().toISOString().split('T')[0],
+                image: selectedImage || 'https://via.placeholder.com/500x300?text=No+Image'
+            };
+            
+            ads.unshift(newAd);
+            saveAdsToStorage(ads);
+            filterAds();
+            closeModal();
+        }
+        
+        // Додавання обробників подій
+        openModalBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        cancelBtn.addEventListener('click', closeModal);
+        submitAdBtn.addEventListener('click', addNewAd);
+        searchBtn.addEventListener('click', filterAds);
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') filterAds();
+        });
+        categoryFilter.addEventListener('change', filterAds);
+        sortFilter.addEventListener('change', filterAds);
+        closeViewModalBtn.addEventListener('click', closeViewModal);
+        closeViewBtn.addEventListener('click', closeViewModal);
+        
+        // Закриття модальних вікон при кліку поза ними
+        addAdModal.addEventListener('click', (e) => {
+            if (e.target === addAdModal) {
+                closeModal();
+            }
+        });
+        
+        viewAdModal.addEventListener('click', (e) => {
+            if (e.target === viewAdModal) {
+                closeViewModal();
+            }
+        });
+        
+        // Початкове відображення оголошень
+        displayAds(ads);
+    </script>
+</body>
+</html>
